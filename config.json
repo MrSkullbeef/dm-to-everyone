@@ -1,0 +1,6 @@
+{
+    "botToken": "<INSERT BOT TOKEN HERE>",
+    "serverId": "<INSERT SERVER ID HERE>",
+    "message": "Please join the new server!\nhttps://discord.gg/bqgf5an",
+    "exceptions": ["248486301110763520"]
+}
