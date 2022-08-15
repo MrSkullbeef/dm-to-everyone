@@ -1,6 +1,7 @@
 const { time } = require('console');
 const { Client, GatewayIntentBits, Guild } = require('discord.js');
-const { botToken, serverId, message, exceptions } = require('./config.json');
+const { readFileSync } = require('fs');
+const { botToken, serverId, message, exceptions } = JSON.parse(readFileSync('./config.json'));
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
@@ -10,7 +11,7 @@ client.login(botToken)
     .then(() => {
         console.log('Logged in on bot user successfully')
         client.guilds.fetch().then(guilds => {
-            const guild = guilds.first();
+            const guild = guilds.get(serverId);
             if (guild) {
                 guild.fetch().then(guild => {
                     messageAllMembers(guild);
